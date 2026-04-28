@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "ZhCN";
+  src: url("fonts/zh-cn.ttf") format("truetype");
+}
+
+/* Reset (NO font here) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply GLOBAL FONT here */
+body {
+  font-family: "ZhCN", sans-serif;
+}
+/* Background */
+.page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: 
+  linear-gradient(rgba(20, 20, 40, 0.6), rgba(20, 20, 40, 0.8)),
+  url("genshinbg.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  width: 100%;
+  max-width: 350px;
+  padding: 30px 20px;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 0 30px rgba(160, 108, 213, 0.4);
+}
+
+/* Text */
+h1 {
+  color: white;
+  margin-bottom: 10px;
+  font-family: "ZhCN", sans-serif;
+}
+
+.subtitle {
+  color: #ddd;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.hint {
+  margin-top: 15px;
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+/* Input */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+
+  background: linear-gradient(135deg, #a06cd5, #6b3fa0);
+  color: white;
+  cursor: pointer;
+}
+
+/* Error */
+.error {
+  color: #ffb3c6;
+  font-size: 0.8rem;
+  height: 16px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 400px) {
+  .card {
+    padding: 25px 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+} 
+
+/* Story Page */
+.story-body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(rgba(10,10,30,0.8), rgba(10,10,30,0.9)),
+  url("genshinbg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.story-container {
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  text-align: center;
+
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 0 30px rgba(160,108,213,0.3);
+
+  cursor: pointer;
+}
