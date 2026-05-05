@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letters 💌</title>
+  <link rel="stylesheet" href="letters.css" />
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <h1>Letters 💌</h1>
+    <p class="subtitle">Pick a letter to open</p>
+
+<div class="buttons">
+  <button onclick="showLetter(0)">Valentines 2024 💘</button>
+  <button onclick="showLetter(1)">Birthday 2024 🎉</button>
+  <button onclick="showLetter(2)">Lantern Rite 2025 ✨</button>
+  <button onclick="showLetter(3)">Valentines 2025 🌹</button>
+  
+</div>
+
+    <div class="letter-box">
+<img id="letterImage" src="letter.png" alt="" />    </div>
+
+  </div>
+
+  <script>
+  const bgMusic = new Audio("sakura.mp3");
+  bgMusic.loop = true;
+  bgMusic.volume = 0.4;
+
+  // restore last position
+  const savedTime = sessionStorage.getItem("musicTime");
+  if (savedTime) {
+    bgMusic.currentTime = parseFloat(savedTime);
+  }
+
+  function saveTime() {
+    sessionStorage.setItem("musicTime", bgMusic.currentTime);
+  }
+
+  function startMusic() {
+    bgMusic.play().catch(() => {
+      document.addEventListener("click", () => {
+        bgMusic.play();
+      }, { once: true });
+    });
+  }
+
+  window.addEventListener("load", () => {
+    if (sessionStorage.getItem("musicPlaying") === "true") {
+      startMusic();
+    }
+  });
+
+  // save progress constantly
+  setInterval(saveTime, 1000);
+
+  const letters = [
+    "letters/Happy Valentines Rinny 2024.png",
+    "letters/Happy Birthday Rinny 2024.png",
+    "letters/Happy New Year Rinny.png",
+    "letters/Happy Valentines Rinny 2025.png"
+    
+  ];
+
+  function showLetter(index) {
+    const img = document.getElementById("letterImage");
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+      img.src = letters[index];
+      img.style.opacity = 1;
+    }, 200);
+
+    img.onclick = () => openFullscreen(letters[index]);
+  }
+
+  function openFullscreen(src) {
+    document.getElementById("fullscreen").style.display = "flex";
+    document.getElementById("fullscreenImg").src = src;
+  }
+
+  function closeFullscreen() {
+    document.getElementById("fullscreen").style.display = "none";
+  }
+
+  
+</script>
+
+  <div id="fullscreen" onclick="closeFullscreen()">
+  <img id="fullscreenImg" />
+</div>
+
+</body>
+</html>

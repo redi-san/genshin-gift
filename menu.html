@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu 🌙</title>
+  <link rel="stylesheet" href="menu.css" />
+</head>
+<body>
+
+  <div class="menu-wrapper">
+    <div class="menu-card">
+      <h1>Welcome 🌙</h1>
+      <p class="subtitle">Choose where you want to go</p>
+
+      <button onclick="goTo('story.html')">For Rinny</button>
+      <button onclick="goTo('letters.html')">Letters</button>
+      <button onclick="goTo('love.html')">Why I love you</button>
+      <button onclick="goTo('gifts.html')">Gifts</button>
+    </div>
+  </div>
+
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>
+
+<script>
+  const bgMusic = new Audio("Moonlike-Smile.mp3");
+  bgMusic.loop = true;
+  bgMusic.volume = 0.4;
+
+  // try to play when page loads
+  window.addEventListener("load", () => {
+    bgMusic.play().catch(() => {
+      // fallback: some browsers block autoplay
+      console.log("Autoplay blocked until user interaction");
+    });
+  });
+
+  function goTo(page) {
+    window.location.href = page;
+  }
+</script>

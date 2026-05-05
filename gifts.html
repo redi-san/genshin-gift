@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gifts 🎁</title>
+    <link rel="stylesheet" href="gifts.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Gifts 🎁</h1>
+      <p class="subtitle">A little collection for rinny</p>
+
+      <!-- Collage Grid -->
+      <div class="gallery">
+                <img src="fanarts/Kita.png" onclick="openFullscreen(this.src)" />
+
+        <img src="fanarts/Bocchi.png" onclick="openFullscreen(this.src)" />
+        <img
+          src="fanarts/Bocchi and Kita.png"
+          onclick="openFullscreen(this.src)"
+        />
+        <img src="fanarts/from kiyo.png" onclick="openFullscreen(this.src)" />
+        <img src="fanarts/fromsegen.png" onclick="openFullscreen(this.src)" />
+        <img src="fanarts/rener.png" onclick="openFullscreen(this.src)" />
+        <img src="fanarts/melokuro.png" onclick="openFullscreen(this.src)" />
+                <img src="fanarts/raiden.png" onclick="openFullscreen(this.src)" />
+                                <img src="fanarts/rein.png" onclick="openFullscreen(this.src)" />
+
+
+      </div>
+    </div>
+
+    <!-- Fullscreen Viewer -->
+    <div id="fullscreen" onclick="closeFullscreen()">
+      <img id="fullscreenImg" />
+    </div>
+
+    <script>
+      function openFullscreen(src) {
+        const fs = document.getElementById("fullscreen");
+        const img = document.getElementById("fullscreenImg");
+
+        img.src = src;
+        fs.style.display = "flex";
+      }
+
+      function closeFullscreen() {
+        document.getElementById("fullscreen").style.display = "none";
+      }
+
+      // Optional background music (same system)
+      const bgMusic = new Audio("nodkraibar.mp3");
+      bgMusic.loop = true;
+      bgMusic.volume = 0.4;
+
+      window.addEventListener("load", () => {
+        bgMusic.play().catch(() => {});
+      });
+
+      document.addEventListener(
+        "click",
+        () => {
+          bgMusic.play().catch(() => {});
+        },
+        { once: true },
+      );
+    </script>
+  </body>
+</html>

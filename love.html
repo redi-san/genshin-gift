@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why I Love You 💖</title>
+  <link rel="stylesheet" href="love.css" />
+</head>
+<body class="love-body">
+
+  <div class="love-container" id="container">
+    <p id="love-text">Tap to begin 💖</p>
+  </div>
+
+  <script>
+    // 🎵 MUSIC (simple + reliable)
+    const bgMusic = new Audio("Moonlike-Smile.mp3");
+    bgMusic.loop = true;
+    bgMusic.volume = 0.4;
+
+    function startMusic() {
+      bgMusic.play().catch(() => {
+        document.addEventListener("click", () => bgMusic.play(), { once: true });
+      });
+    }
+
+    startMusic();
+
+    // 💖 TEXT CONTENT
+    const lines = [
+      "Hi Rinny 💖",
+      "I do not even know where to start...",
+      "Because there are too many reasons why I love you.",
+      "I love the way you exist in my life.",
+      "I love how you make even simple moments feel special.",
+      "I love your kindness, even when the world is tiring.",
+      "I love how you try, even when things are hard.",
+      "I love your presence... it feels like happiness.",
+      "I love the way you are just you.",
+      "Not perfect. Not fake. Just real.",
+      "And that’s what makes you beautiful to me.",
+      "If I had to choose again...",
+      "I would still choose you every single time.",
+      "Because loving you is the easiest thing I’ve ever done.",
+      "And I’ll keep loving you... quietly, always.",
+      "That’s all I wanted to say.",
+      "You are loved. More than you know 💖"
+    ];
+
+    let index = 0;
+    const textEl = document.getElementById("love-text");
+    const container = document.getElementById("container");
+
+    function nextLine() {
+      if (index < lines.length) {
+        textEl.textContent = lines[index];
+        index++;
+      } else {
+        textEl.textContent = "I love you Rinny 💖";
+
+        setTimeout(() => {
+          window.location.href = "menu.html";
+        }, 2500);
+      }
+    }
+
+    // ⭐ IMPORTANT: force click works everywhere
+    container.addEventListener("click", nextLine);
+  </script>
+
+</body>
+</html>

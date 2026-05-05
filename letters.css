@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "ZhCN";
+  src: url("fonts/zh-cn.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "ZhCN", sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+/* Background (same vibe as menu) */
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(rgba(20,20,40,0.7), rgba(20,20,40,0.9)),
+  url("genshinbg.png");
+  background-size: cover;
+  background-position: center;
+
+  text-align: center;
+  padding: 20px;
+}
+
+/* Title */
+h1 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #ddd;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+/* Buttons container */
+.buttons {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* Buttons (same as menu) */
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #a06cd5, #6b3fa0);
+  color: white;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+/* Letter display card (glass style like menu-card) */
+.letter-box {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(160,108,213,0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 300px;
+}
+
+/* Image styling */
+.letter-box img {
+  max-width: 100%;
+  max-height: 450px;
+  border-radius: 10px;
+
+  opacity: 1;
+  transition: 0.3s ease;
+}
+
+#fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.9);
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+#fullscreen img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 10px;
+}

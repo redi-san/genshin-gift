@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "ZhCN";
+  src: url("fonts/zh-cn.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "ZhCN", sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+.menu-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(rgba(20,20,40,0.7), rgba(20,20,40,0.9)),
+  url("genshinbg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-card {
+  width: 90%;
+  max-width: 360px;
+  padding: 30px;
+  text-align: center;
+
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(160,108,213,0.4);
+}
+
+h1 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #ddd;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #a06cd5, #6b3fa0);
+  color: white;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+}

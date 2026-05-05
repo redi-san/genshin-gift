@@ -1,3 +1,16 @@
+const bgMusic = new Audio("Hopeful Tomorrow.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.4;
+
+function startMusic() {
+  bgMusic.play().catch(() => {
+    // if blocked, wait for ANY click
+    document.addEventListener("click", () => {
+      bgMusic.play();
+    }, { once: true });
+  });
+}
+
 function checkPassword() {
   const input = document.getElementById("password").value;
   const error = document.getElementById("error");
@@ -6,21 +19,28 @@ function checkPassword() {
 
   if (normalized === "moonlike smile") {
 
-    // Start music
-    const audio = new Audio("Moonlike-Smile.mp3");
-    audio.loop = true;
-    audio.volume = 0.4;
-    audio.play();
-
-    // Save that we unlocked it
     sessionStorage.setItem("unlocked", "true");
+    sessionStorage.setItem("musicPlaying", "true");
 
-    // small delay for effect
+    startMusic(); // 👈 start music HERE
+
     setTimeout(() => {
-      window.location.href = "story.html";
+      window.location.href = "menu.html";
     }, 800);
 
   } else {
     error.textContent = "That doesn't feel quite right...";
   }
 }
+
+function unlockAudio() {
+  startMusic();
+  document.getElementById("overlay").style.display = "none";
+}
+
+// 🔥 THIS IS THE IMPORTANT PART
+window.addEventListener("load", () => {
+  if (sessionStorage.getItem("musicPlaying") === "true") {
+    startMusic(); // 👈 try again when returning to page
+  }
+});
