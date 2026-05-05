@@ -26,44 +26,28 @@
 
   </div>
 
-  <script>
+<script>
   const bgMusic = new Audio("sakura.mp3");
   bgMusic.loop = true;
   bgMusic.volume = 0.4;
 
-  // restore last position
-  const savedTime = sessionStorage.getItem("musicTime");
-  if (savedTime) {
-    bgMusic.currentTime = parseFloat(savedTime);
-  }
+  // 🎵 ALWAYS START FRESH ON PAGE LOAD
+  window.addEventListener("load", () => {
+    bgMusic.currentTime = 0; // reset to beginning
 
-  function saveTime() {
-    sessionStorage.setItem("musicTime", bgMusic.currentTime);
-  }
-
-  function startMusic() {
     bgMusic.play().catch(() => {
+      // fallback for mobile autoplay block
       document.addEventListener("click", () => {
         bgMusic.play();
       }, { once: true });
     });
-  }
-
-  window.addEventListener("load", () => {
-    if (sessionStorage.getItem("musicPlaying") === "true") {
-      startMusic();
-    }
   });
-
-  // save progress constantly
-  setInterval(saveTime, 1000);
 
   const letters = [
     "letters/Happy Valentines Rinny 2024.png",
     "letters/Happy Birthday Rinny 2024.png",
     "letters/Happy New Year Rinny.png",
     "letters/Happy Valentines Rinny 2025.png"
-    
   ];
 
   function showLetter(index) {
@@ -86,8 +70,6 @@
   function closeFullscreen() {
     document.getElementById("fullscreen").style.display = "none";
   }
-
-  
 </script>
 
   <div id="fullscreen" onclick="closeFullscreen()">

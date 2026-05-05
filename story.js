@@ -1,4 +1,4 @@
-const bgMusic = new Audio("Moonlike-Smile.mp3");
+const bgMusic = new Audio("Fragile Fantasy.mp3");
 bgMusic.loop = true;
 bgMusic.volume = 0.4;
 bgMusic.play();
